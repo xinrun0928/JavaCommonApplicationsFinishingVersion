@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>生成炫酷二维码</title>
+    <script language="JavaScript" src="./jquery-1.12.4.js"></script>
+    <style>
+        img[src=""], img:not([src]){
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="javascript:void(0)" onclick="uploadPhoto()">选择图片</a>
+    <input type="file" id="photoFile" />
+    <br />
+    <input type="text" id="text" placeholder="请输入跳转链接" />
+    <img id="preview_photo" src="" width="200px" height="200px" />
+    <ul>
+        <li><input type="button" id="normal" value="生成普通二维码" onclick="upload('normal')" /></li>
+        <li><input type="button" id="logo" value="生成logo二维码" onclick="upload('logo')" /></li>
+        <li><input type="button" id="color" value="生成彩色二维码" onclick="upload('color')" /></li>
+        <li><input type="button" id="background" value="生成带背景二维码" onclick="upload('background')" /></li>
+        <li><input type="button" id="style" value="生成特殊形状二维码" onclick="upload('style')" /></li>
+        <li><input type="button" id="imageFill" value="生成图片填充二维码" onclick="upload('imageFill')" /></li>
+        <li><input type="button" id="gif" value="生成gif二维码" onclick="upload('gif')" /></li>
+    </ul>
+
+    <script>
+        function uploadPhoto() {
+            $("#photoFile").click();
+        }
+
+        /**
+         * 上传图片
+         */
+        function upload(flag){
+            var formData = new FormData();
+            formData.append('logoFile', document.getElementById("photoFile").files[0]);
+            formData.append('text', document.getElementById("text").value);
+            formData.append('flag', flag);
+            $.ajax({
+                url: "http://localhost:8080/create",
+                type: "post",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    $("#preview_photo").attr("src", "data:image/jpeg;base64," + data)
+                },
+                error: function (data) {
+                    alert("上传失败");
+                }
+            })
+        }
+
+    </script>
+
+</body>
+</html>

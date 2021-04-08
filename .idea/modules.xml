@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/QRCode/QRCode.iml" filepath="$PROJECT_DIR$/QRCode/QRCode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cool-two-dimensional-code-collection/cool-two-dimensional-code-collection.iml" filepath="$PROJECT_DIR$/cool-two-dimensional-code-collection/cool-two-dimensional-code-collection.iml" />
     </modules>
   </component>
 </project>

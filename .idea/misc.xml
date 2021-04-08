@@ -4,6 +4,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/QRCode/pom.xml" />
+        <option value="$PROJECT_DIR$/cool-two-dimensional-code-collection/pom.xml" />
       </list>
     </option>
   </component>
